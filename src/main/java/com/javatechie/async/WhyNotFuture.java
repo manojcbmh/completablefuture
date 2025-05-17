@@ -13,11 +13,12 @@ public class WhyNotFuture {
         Future<List<Integer>> future = service.submit(() -> {
             //your doing api call
             System.out.println("Thread : "+Thread.currentThread().getName());
+            //TimeUnit.MINUTES.sleep(1);
             System.out.println(10/0);
             return Arrays.asList(1, 2, 3, 4);
         });
 
-
+        //Future does not have complete method to manually complete but it's there in CompletableFuture.
         List<Integer> integers = future.get();
         System.out.println(integers);
 
